@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Labrada:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+:root {
+  --font-title: 'Merriweather', serif;
+  --font-common: 'Open Sans', sans-serif;
+
+  --col-1: #4A4A68;
+  --col-2: #FFF;
+  --col-3: #F9F9F9;
+  --col-4: #EDEFF0;
+  --col-5: #0D326C;
+
+  /* font-colors */
+
+  --font-col: var(--col-1);
+  --btn-font-col: var(--col-2);
+
+  /* backgrounds */
+
+  --main-background-col: var(--col-3);
+  --date-component-background-col: var(--col-4);
+  --btn-background-col: var(--col-5);
+  --user-card-background-col: var(--col-2);
+}
+
+body {
+
+}
+
+main {
+  padding-top: 80px;
+  background-color: var(--main-background-col);
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+  font-family: var(--font-title);
+}
+
+p, span, a, b, strong, i,
+em, mark, small, del, ins,
+sub, sup, label {
+  font-family: var(--font-common);
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 140%;
+}
+
+h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 140%;
+}
