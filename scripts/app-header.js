@@ -1,4 +1,4 @@
-import { setDate } from '../utils/helpers.js';
+import { setDate, setUrlSearchParams } from '../utils/helpers.js';
 
 function appHeaderInstall() {
   const wrapperId = document.getElementById('wrapper');
@@ -53,20 +53,27 @@ function appHeaderInstall() {
   startDateLabel.htmlFor = 'startDate';
   endDateLabel.htmlFor = 'endDate';
 
-  startDate.value = setDate(new Date());
-  endDate.value = setDate(new Date());
+  const dateValue = setDate(new Date());
+  setUrlSearchParams(startDate.name, dateValue);
+  setUrlSearchParams(endDate.name, dateValue);
+  startDate.value = dateValue;
+  startDate.max = dateValue;
+  endDate.value = dateValue;
+  endDate.min = dateValue;
 
   const changeHandler = (event) => {
     const name = event.target.name;
     const value = event.target.value;
 
-    if ('URLSearchParams' in window) {
-      const searchParams = new URLSearchParams(window.location.search);
-      searchParams.set([name], value);
-      const newRelativePathQuery =
-        window.location.pathname + '?' + searchParams.toString();
-      history.pushState(null, '', newRelativePathQuery);
+    if (name === 'startDate') {
+      const endDate = document.getElementById('dateTo');
+      endDate.min = value;
+    } else if (name === 'endDate') {
+      const startDate = document.getElementById('dateFrom');
+      startDate.max = value;
     }
+
+    setUrlSearchParams(name, value);
   };
 
   startDate.addEventListener('change', changeHandler);

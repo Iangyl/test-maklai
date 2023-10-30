@@ -40,10 +40,6 @@
   letter-spacing: .02rem;
 }
 
-.date:hover {
-  cursor: pointer;
-}
-
 .date:focus {
   outline: none;
 }
