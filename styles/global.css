@@ -29,6 +29,7 @@ body {
 
 main {
   padding-top: 80px;
+  padding-bottom: 67px;
   background-color: var(--main-background-col);
   height: 100vh;
 }

@@ -2,6 +2,7 @@ import userCard from "./user-card.js";
 
 export default function dataRequest(event) {
   event.preventDefault();
+  const main = document.getElementById('app')
   const dataContainer = document.getElementById('data-container');
   const searchParams = new URLSearchParams(window.location.search);
 
@@ -12,7 +13,6 @@ export default function dataRequest(event) {
   const personsRequest = new Promise(async (resolve, reject) => {
     const response = await fetch(api);
     const result = await response.json();
-    console.log('result', result)
     if (result.status && result?.status !== 'OK') reject(response?.message ?? 'Wrong API usage!');
     else resolve(result.data);
   })
@@ -29,6 +29,7 @@ export default function dataRequest(event) {
       const site = item.website;
       return userCard(username, email, tel, birthday, sex, site)
     })
+    main.style.height = 'auto';
     dataContainer.append(...userCardsArray);
   }).catch((error) => console.log(error))
 }
