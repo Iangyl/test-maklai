@@ -1,0 +1,25 @@
+.data-container {
+  width: 100%;
+  display: grid;
+  column-gap: 24px;
+}
+
+@media screen and (min-width: 375px) {
+  .data-container {
+    margin-top: 24px;
+    grid-template-columns: 345px;
+    row-gap: 24px;
+  }
+}
+@media screen and (min-width: 744px) {
+  .data-container {
+    grid-template-columns: repeat(2, 345px);
+  }
+}
+@media screen and (min-width: 1440px) {
+  .data-container {
+    margin-top: 46px;
+    grid-template-columns: repeat(3, 411px);
+    row-gap: 48px;
+  }
+}
