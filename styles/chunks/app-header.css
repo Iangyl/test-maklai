@@ -1,5 +1,4 @@
 .app-header {
-  max-width: 864px;
   width: 100%;
   margin: 0 auto;
 }
@@ -32,7 +31,6 @@
 }
 
 .date {
-  width: 256px;
   border: none;
   padding: 13px 24px 14px 24px;
 
@@ -86,4 +84,45 @@
 }
 .button-sub:hover {
   cursor: pointer;
+}
+
+@media screen and (min-width: 375px) {
+  .app-header {
+    max-width: 345px;
+  }
+  .date-time {
+    flex-direction: column;
+    gap: 16px
+  }
+  .date {
+    width: 297px;
+  }
+  .date:last-of-type {
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (min-width: 744px) {
+  .app-header {
+    max-width: 714px;
+  }
+  .date-time {
+    flex-direction: row;
+    gap: 24px
+  }
+  .date {
+    width: 206px;
+  }
+  .date:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .app-header {
+    max-width: 864px;
+  }
+  .date {
+    width: 256px;
+  }
 }

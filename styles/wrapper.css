@@ -3,21 +3,15 @@
   margin: 0 auto;
 }
 
-@media screen and (min-width: 360px) {
+@media screen and (min-width: 375px) {
   .wrapper {
-    max-width: 320px;
+    max-width: 345px;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 744px) {
   .wrapper {
-    max-width: 744px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .wrapper {
-    max-width: 920px;
+    max-width: 714px;
   }
 }
 

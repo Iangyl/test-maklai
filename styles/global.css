@@ -30,17 +30,20 @@ body {
 main {
   padding-top: 80px;
   background-color: var(--main-background-col);
+  height: 100vh;
 }
 
 h1, h2, h3,
 h4, h5, h6 {
   font-family: var(--font-title);
+  color: var(--font-col);
 }
 
 p, span, a, b, strong, i,
 em, mark, small, del, ins,
 sub, sup, label {
   font-family: var(--font-common);
+  color: var(--font-col);
 }
 
 h2 {

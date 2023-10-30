@@ -1,3 +1,5 @@
+import { setDate } from '../utils/helpers.js';
+
 function appHeaderInstall() {
   const wrapperId = document.getElementById('wrapper');
   const appHeader = document.createElement('div');
@@ -5,7 +7,7 @@ function appHeaderInstall() {
 
   appHeader.className = 'app-header';
   actionTitle.className = 'action-title';
-  
+
   actionTitle.innerText = 'Виберіть дату народження';
 
   const dateTime = document.createElement('form');
@@ -25,6 +27,8 @@ function appHeaderInstall() {
 
   /* adding class */
   dateTime.className = 'date-time';
+  dateTime.id = 'date-time';
+
   startDateContainer.className = 'date-container';
   endDateContainer.className = 'date-container';
   startDateSign.className = 'date-sign';
@@ -44,8 +48,29 @@ function appHeaderInstall() {
   endDate.name = 'endDate';
   startDate.type = 'date';
   endDate.type = 'date';
+  startDate.id = 'dateFrom';
+  endDate.id = 'dateTo';
   startDateLabel.htmlFor = 'startDate';
   endDateLabel.htmlFor = 'endDate';
+
+  startDate.value = setDate(new Date());
+  endDate.value = setDate(new Date());
+
+  const changeHandler = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    if ('URLSearchParams' in window) {
+      const searchParams = new URLSearchParams(window.location.search);
+      searchParams.set([name], value);
+      const newRelativePathQuery =
+        window.location.pathname + '?' + searchParams.toString();
+      history.pushState(null, '', newRelativePathQuery);
+    }
+  };
+
+  startDate.addEventListener('change', changeHandler);
+  endDate.addEventListener('change', changeHandler);
 
   /* img set-up */
   startDateImg.src = './assets/calendar.svg';
@@ -60,7 +85,6 @@ function appHeaderInstall() {
   button.innerText = 'Оновити';
   startDateBtnForImg.type = 'button';
   endDateBtnForImg.type = 'button';
-
 
   /* appending */
   startDateBtnForImg.appendChild(startDateImg);
@@ -85,4 +109,4 @@ function appHeaderInstall() {
   wrapperId.appendChild(appHeader);
 }
 
-appHeaderInstall()
+appHeaderInstall();
